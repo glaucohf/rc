@@ -1,8 +1,8 @@
 <?php 
 //fake values
-$_POST['name'] = "GlaucoTESTE200";
+$_POST['name'] = "GlaucoTESTE301";
 $_POST['message'] = "Nothing";
-$_POST['phone'] = "(21) 98780-8885";
+$_POST['phone'] = "552198780-8885";
 $_POST['email'] = "glaucofiles+200@gmail.com";
 $_POST['interest'] = "Teen";
 
@@ -66,7 +66,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 
-*/
+
 
 // set post fields to leadlovers
 
@@ -92,7 +92,7 @@ $responseLL = curl_exec($ch);
 
 // close the connection, release resources used
 curl_close($ch);
-
+*/
 // set post fields to agendor
 function read($file){
     $fp = fopen($file, "r");
@@ -145,7 +145,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, "{
   \"phones\": [
     {
       \"number\": \" $phone \",
-      \"type\": \"mobile\"
+      \"type\": \"work\"
     }
   ],
   \"emails\": [\" $email \"],
@@ -158,10 +158,10 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 $responseAg = curl_exec($ch);
 curl_close($ch);
-
+echo $responseAg;
 //var_dump($responseAg);
 
-
+/*
 $ch = curl_init();
 $obj = json_decode($responseAg);
 
@@ -207,10 +207,11 @@ $responseAgTarefa = curl_exec($ch);
 
 
 curl_close($ch);
-
+echo $responseAgTarefa;
+/*
  if ( $responseAg ) {
 	header($thanksUrl); 
  }
-
+*/
 
 ?>

@@ -1,4 +1,10 @@
 <?php 
+//fake values
+$_POST['name'] = "GlaucoTESTE403";
+$_POST['message'] = "Nothing";
+$_POST['phone'] = "+55(21)98780-8885";
+$_POST['email'] = "glaucofiles+403@gmail.com";
+$_POST['interest'] = "Teen";
 
 $name = $_POST['name'];
 $phone = $_POST['phone'];
@@ -82,6 +88,7 @@ $responseLL = curl_exec($ch);
 
 // close the connection, release resources used
 curl_close($ch);
+
 
 // set post fields to agendor
 function read($file){

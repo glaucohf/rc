@@ -17,6 +17,7 @@ if ($interest == ""){
 	$email = $_POST['llfield3520'];
 	$interest = $_POST['llfield9096']; // Lead from Rio Coaching (dinamic form )
 }
+
 switch ($interest) {
 case "Kids":
 case "Kids - contato": //from icij

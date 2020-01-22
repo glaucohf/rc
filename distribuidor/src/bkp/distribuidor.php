@@ -1,4 +1,5 @@
-<?php 
+<?php
+//bkp do dia 20200122
 //date_default_timezone_set('America/Sao_Paulo'); //Com horário de verão
 date_default_timezone_set('America/Recife'); //Sem horário de verão
 $sendEmail = false;
@@ -7,7 +8,7 @@ $sendLeadAgendor = true;
 $sendExternalAgendor = false;
 $sendHotzapp = false;
 $sendDB = true;
-$insideTheLimit = true; 
+$insideTheLimit = true;
 $checkMandatoryPhone = true;
 $countAlreadyRegistredLead = true; //Contabilizar usuário já registrado
 
@@ -39,13 +40,13 @@ $scheduled_attendance = 1;
 $firstTimeLead=1; //Primeira vez que o lead se aplica
 $restarted_roundrobin = false;
 
-if ($interest == ""){ 
+if ($interest == ""){
 	$name = $_POST['llfield3519'];
 	$phone = $_POST['llfield3521'];
 	$email = $_POST['llfield3520'];
 	$interest = $_POST['llfield9096']; // Lead from Rio Coaching (dinamic form )
 }
-if ($url == ""){ 
+if ($url == ""){
 	$url = $_POST['url'];
 	$ip = $_POST["ip"];
 }
@@ -56,7 +57,7 @@ if ($checkMandatoryPhone == true and $phone == ""){
 	$thanksUrl = 'Location: https://riocoaching.com.br/obrigado/';
 	goto end;
 }
-	
+
 
 switch ($interest) {
 case "Kids":
@@ -82,7 +83,7 @@ case "KCP-pay":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial/mensagem-enviada';
 	$id = '195293';
     $pid = '7058771';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[318550]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -96,7 +97,7 @@ case "KCP-RJ":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
 	$id = '195293';
     $pid = '7483817';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[325440]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -110,7 +111,7 @@ case "KCP-SP":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-sp/mensagem-enviada';
 	$id = '195293';
     $pid = '7483818';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[325441]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -121,7 +122,7 @@ case "KCP-BH":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-bh/mensagem-enviada';
 	$id = '195293';
     $pid = '7483816';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[325442]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -132,7 +133,7 @@ case "KCP-Belem":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-belem/mensagem-enviada';
 	$id = '195293';
     $pid = '7483821';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[325443]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -143,7 +144,7 @@ case "KCP-PT":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-pt/mensagem-enviada';
 	$id = '195293';
     $pid = '7934135';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[333134]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -154,7 +155,7 @@ case "KCP-Brasilia":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-brasilia/mensagem-enviada';
 	$id = '195293';
     $pid = '8921539';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[349235]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -165,7 +166,7 @@ case "KCP-Recife":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-recife/mensagem-enviada';
 	$id = '195293';
     $pid = '8921543';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[349237]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -178,7 +179,7 @@ case "KCP-Recife-ICIJ":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-recife/mensagem-enviada';
 	$id = '195293';
     $pid = '8921543';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[349237]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -191,7 +192,7 @@ case "KCP-Curitiba":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-curitiba/mensagem-enviada';
 	$id = '195293';
     $pid = '8921546';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[349236]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -202,7 +203,7 @@ case "KCP-Floripa":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-floripa/mensagem-enviada';
 	$id = '195293';
     $pid = '9315003';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[356099]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -213,7 +214,7 @@ case "KCP-POA":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-porto-alegre/mensagem-enviada';
 	$id = '195293';
     $pid = '9315027';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[356100]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -224,7 +225,7 @@ case "KCP-Uberlandia":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-uberlandia/mensagem-enviada';
 	$id = '195293';
     $pid = '10731017';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[382296]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -235,7 +236,7 @@ case "KCP-CaxiasdoSul":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-caxiasdosul/mensagem-enviada';
 	$id = '195293';
     $pid = '10731499';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[382297]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -246,7 +247,7 @@ case "KCP-Campinas":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-campinas/mensagem-enviada';
 	$id = '195293';
     $pid = '12844978';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[415784]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -257,7 +258,7 @@ case "KCP-Salvador":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-salvador/mensagem-enviada';
 	$id = '195293';
     $pid = '13138607';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[416913]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -268,7 +269,7 @@ case "KCP-Goiania":
 	$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-goiania/mensagem-enviada';
 	$id = '195293';
     $pid = '13138652';
-	$leadOrigins = 1030466;	
+	$leadOrigins = 1030466;
 	$products = "[416914]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -475,7 +476,7 @@ case "tg-pay":
 	$consultingTable = 1;
 	$dinamicForm = false;
 	break;
-case "mb": //TODO Ajustar os valores 
+case "mb": //TODO Ajustar os valores
 	$mailUrl = 'http://riocoaching.com.br/distribuidor/enviarEmailProdutos.php';
 	$leadloversUrl = 'https://leadlovers.com/Pages/Index/119021';
 	$thanksUrl = 'Location: https://coachinginfantojuvenil.com.br/mensagem-enviada-tg/';
@@ -570,8 +571,8 @@ case "TC-Passa": //aulas do passariano tc
 	$consultingTable = 2;
 	$dinamicForm = false;
 	$sendLeadAgendor = false;
-	break;	
- case "kc-cpl4": 
+	break;
+ case "kc-cpl4":
 	$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
 	$leadloversUrl = 'https://leadlovers.com/Pages/Index/151488';
 	$thanksUrl = 'Location: https://pay.hotmart.com/N4260373R?off=tco7gczk';
@@ -583,14 +584,14 @@ case "TC-Passa": //aulas do passariano tc
 	$dinamicForm = false;
 	$sendLeadAgendor = true;
 	$sendWhatsappOption = "";
-	break;  	
+	break;
  case "tc-ppl": //tc ppl1 e 2
 	$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
 	$leadloversUrl = 'https://leadlovers.com/Pages/Index/156625';
 	$thanksUrl = 'Location: https://teencoaching.com.br/embreve';
 	$id = '156625';
     $pid = '5088844';
-	$leadOrigins = 1030465; 
+	$leadOrigins = 1030465;
 	$products = "[222988]";
 	$consultingTable = 2;
 	$dinamicForm = false;
@@ -609,7 +610,7 @@ case "tc-cpl4": //comprar curso da aula 4 teen
 	$dinamicForm = false;
 	$sendLeadAgendor = true;
 	$sendWhatsappOption = "";
-	break;    
+	break;
 case "doterra":
 	$mailUrl = 'http://riocoaching.com.br/distribuidor/enviarEmailProdutos.php';
 	$leadloversUrl = 'https://leadlovers.com/Pages/Index/329770';
@@ -684,7 +685,7 @@ case "Expo-Portugal":
 	$sendConcretize = true;
 	$concretizeUrl = 'http://riocoaching.com.br/distribuidor/concretize.php';
 	$sendWhatsappOption = "";
-	break; 	
+	break;
 case "Expo-SP": //exponential coaching
 	$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailExpo.php';
 	$leadloversUrl = 'https://paginas.rocks/Pages/Index/209536';
@@ -701,7 +702,7 @@ case "Expo-SP": //exponential coaching
 	$sendConcretize = true;
 	$concretizeUrl = 'http://riocoaching.com.br/distribuidor/concretize.php';
 	$sendWhatsappOption = "";
-	break;   	
+	break;
 case "Expo-RJ": //exponential coaching
 	$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailExpo.php';
 	$leadloversUrl = 'https://paginas.rocks/Pages/Index/209536';
@@ -734,7 +735,7 @@ case "Expo": //exponential coaching geral
 	$sendLeadLovers = true;
 	$sendConcretize = false;
 	$sendWhatsappOption = "";
-	break;   	  		 
+	break;
 case "Trainers":
 	$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailExpo.php';
 	$leadloversUrl = 'https://paginas.rocks/Pages/Index/233372';
@@ -749,7 +750,7 @@ case "Trainers":
 	$sendLeadAgendor = true;
 	$sendLeadLovers = true;
 	$sendConcretize = false;
-	$sendWhatsappOption = "";	
+	$sendWhatsappOption = "";
 	break;
 case "HSEmocionais":
 	$mailUrl = 'http://riocoaching.com.br/distribuidor/enviarEmailProdutos.php';
@@ -775,11 +776,11 @@ case "Cont.Historia":
 	$dinamicForm = false;
 	$sendLeadAgendor = true;
 	break;
-case "Profiler":	
-	break;  
-case "Reingresso":	
+case "Profiler":
 	break;
-case "Encontro":	
+case "Reingresso":
+	break;
+case "Encontro":
 	break;
 default: //same as kids
 	$interest = "sem-interest";
@@ -798,17 +799,17 @@ default: //same as kids
 if(!empty($destino)){
     if($destino=='hunter'){
         $thanksUrl = 'Location: https://riocoaching.com.br/lead-cadastrado/';
-        $leadOrigins = 1132079;    
+        $leadOrigins = 1132079;
     }
     else if($destino=='mkt'){
         $thanksUrl = 'Location: https://riocoaching.com.br/cadastrar-lead-mkt?st=1';
-        $leadOrigins = 1132079;   
+        $leadOrigins = 1132079;
     }
     else{
         $thanksUrl = 'Location: https://riocoaching.com.br/lead-cadastrado/';
-        $leadOrigins = 1132079;  
+        $leadOrigins = 1132079;
     }
-    
+
 }
 
 //BEGIN EMAIL
@@ -824,13 +825,13 @@ if ($sendEmail){
 		'ip' => $_SERVER["REMOTE_ADDR"]
 	];
 
-	$ch = curl_init($mailUrl); 
+	$ch = curl_init($mailUrl);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
 	// execute!
 	$response = curl_exec($ch);
-		
+
 	// close the connection, release resources used
 	curl_close($ch);
 
@@ -845,7 +846,7 @@ if ($sendEmail){
 if ($sendLeadLovers){
 	if ($dinamicForm == true){
 		logMsg( DINAMICO );
-		// set post fields dinamic form 
+		// set post fields dinamic form
 		$post = [
 			'mid' => $id,
 			'fid' => $pid,
@@ -864,7 +865,7 @@ if ($sendLeadLovers){
 		$post = [
 			'id' => $id,
 			'pid' => $pid,
-			'list_id' => $id, 
+			'list_id' => $id,
 			'provider' => 'leadlovers',
 			// 'source' => $_GET['utm_source'],
 			//'source' => $_COOKIE['_ao5_track_mensagem'],
@@ -894,20 +895,20 @@ if ($sendLeadLovers){
 //BEGIN AGENDOR
 $responseAgTarefa=true;
 if ($sendLeadAgendor){
-	
+
 
 	// Se já tiver um consultor cadastrado, e ele estiver ativo, continua com ele, senão seleciona um novo
 	$consulting = getActualConsulting($email);
 	$msg2log = sprintf(  "Consultor encontrado: %s " , $consulting);
 	logMsg( $msg2log );
 	if ($consulting != ""){
-		$firstTimeLead = 0;	
+		$firstTimeLead = 0;
 		$isActiveConsulting = isActiveConsulting($consulting);
 		$msg2log = sprintf(  "Consultor ativo: %s " , $isActiveConsulting);
 		logMsg( $msg2log );
 	}
 	$reapply = 0;
-	
+
 
 	if ($isActiveConsulting!=1 or $consulting == ""){
 		$day = date('d');
@@ -934,15 +935,15 @@ if ($sendLeadAgendor){
 			logMsg( $msg2log );
 		}
 	}
-	
-	$msg2log = sprintf(  "Codigo do consultor alocado: %s", $consulting );
-	logMsg( $msg2log );	
 
-	
+	$msg2log = sprintf(  "Codigo do consultor alocado: %s", $consulting );
+	logMsg( $msg2log );
+
+
 	//Se já tiver um consultor e não é a externalAgendor é pq já existia na base da Rio Coaching portanto não deve ir para a externalAgendor. Se ele está no usuário externalAgendor então ele pode ir novamente para o agendor da ExternalAgendor
 	if ($consulting != "" and $consulting != $externalConsulting){
 		$sendExternalAgendor = false;
-	}	
+	}
 	else {
 		$sendExternalAgendor = true;
 		// Se utrapassar o limite diário, irá lançar na lista de consultores sobressalentes, cada tabela tem a sua sobressalente, senão faz o roundrobin pelos consultores
@@ -951,7 +952,7 @@ if ($sendLeadAgendor){
 
 
 
-	
+
 	$curl = curl_init();
 
 	$fieldsLead = "{
@@ -959,9 +960,9 @@ if ($sendLeadAgendor){
 		\"ownerUser\":  $consulting,
 		\"description\": \"$observation\",
 		\"category\": 1268295,
-		\"products\": $products, 
+		\"products\": $products,
 		\"leadOrigin\": $leadOrigins,
-		\"contact\": { \"email\": \"$email\", 
+		\"contact\": { \"email\": \"$email\",
 		\"whatsapp\": \"$phone\"}}";
 
 	curl_setopt_array($curl, array(
@@ -984,7 +985,7 @@ if ($sendLeadAgendor){
 	$err = curl_error($curl);
 	$obj = json_decode($responseAg);
 
-	$client = $obj->{'data'}->{'id'}; 
+	$client = $obj->{'data'}->{'id'};
 
 	curl_close($curl);
 
@@ -1001,7 +1002,7 @@ if ($sendLeadAgendor){
 	logMsg( $fieldsLead );
 	logMsg( $responseAg );
 
-	$date = date('Y-m-d\TH:i:s');   
+	$date = date('Y-m-d\TH:i:s');
 
 	// Task creation
 	$ch = curl_init();
@@ -1034,14 +1035,14 @@ if ($sendLeadAgendor){
 	logMsg( $msg2log );
 	logMsg( $fieldsTask );
 	logMsg( $responseAgTarefa );
-	
+
 }
 
 
 //	 BEGIN HOTZAPP
-// set post fields to Hotzapp 
+// set post fields to Hotzapp
 if ($sendHotzapp){
-	
+
 	$urlHotzapp = $urlHotzappPrefix.$urlHotzappSufix;
 	//inicio envio via json
 	$ch = curl_init();
@@ -1068,12 +1069,12 @@ if ($sendHotzapp){
 	$responseHotzapp = curl_exec($ch);
 
 	curl_close($ch);
-	
+
 	// log do envio para hotzapp
 	$msg2log = sprintf(  "Envio para hotzapp: Nome: %s , email: %s , telefone: %s , produto: %s " , $name, $email, $phone, $hotzappProduct );
 	logMsg( $msg2log );
 	logMsg($responseHotzapp);
-	
+
 }
 
 //BEGIN EXTERNAL AGENDOR
@@ -1091,13 +1092,13 @@ if ($sendExternalAgendor){
 			'sendWhatsappOption' => $sendWhatsappOption
 		];
 
-		$ch = curl_init($externalAgendorUrl); 
+		$ch = curl_init($externalAgendorUrl);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
 		// execute!
 		$responseConc = curl_exec($ch);
-			
+
 		// close the connection, release resources used
 		curl_close($ch);
 
@@ -1116,7 +1117,7 @@ if ($sendDB){
 	$stmt = $conn->prepare("INSERT INTO access (lead_name, lead_email, lead_phone, consulting_id, interest,
 	ip, from_url, form, origins, product,
 	category, id_leadlovers,  pid_leadlovers, observation,
-	whatsapp, thanks_url, go_to_pay, scheduled_attendance, first_time) 
+	whatsapp, thanks_url, go_to_pay, scheduled_attendance, first_time)
 	VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 	$stmt->bind_param("sssssssssssssssssss", $name, $email, $phone, $consulting, $interest,
@@ -1137,11 +1138,11 @@ if ($sendDB){
 		logMsg( $msg2log, 'error' );
 		//echo "Error: " . $stmt->error . "<br>" . $conn->error;
 	}
-	
+
 	$stmt->close();
 	$conn->close();
 
-}	
+}
 
 
 
@@ -1150,7 +1151,7 @@ function isActiveConsulting($consulting){
 	$conn = getConnection();
 
 	$query = sprintf("SELECT consulting_status FROM consulting01 WHERE id = %s limit 1", $consulting);
-	
+
 	$msg2log = sprintf(  "Busca de situação de consultor: %s " , $query );
 	logMsg( $msg2log );
 	if ($result = $conn->query($query)) {
@@ -1168,33 +1169,33 @@ function isActiveConsulting($consulting){
 	$isActiveConsulting = $isActiveConsulting!=""?$isActiveConsulting:0;
 	return $isActiveConsulting;
 }
-	
-	
+
+
 function getNextConsulting($consulting_table_number, $lastConsulting, $isPriority, $day){
 	$countColumnName = "default_count";
 	$dayColumnName =  "default_" . $day;
-	
+
 	if ($isPriority){
 		$countColumnName = "priority_count";
-		$dayColumnName = "priority_" . $day; 
-	}	
+		$dayColumnName = "priority_" . $day;
+	}
 	$conn = getConnection();
-	
-	
-	$query = sprintf("SELECT id FROM consulting01 WHERE 
-	consulting_table = %s AND 
-	consulting_status = 1 AND 
+
+
+	$query = sprintf("SELECT id FROM consulting01 WHERE
+	consulting_table = %s AND
+	consulting_status = 1 AND
 	%s < %s AND
-	id > %s order by id 
+	id > %s order by id
 	limit 1",
     $consulting_table_number,
     $countColumnName,
 	$dayColumnName,
 	$lastConsulting);
-	
+
 	$msg2log = sprintf(  "Busca de próximo Consultor: %s " , $query );
 	logMsg( $msg2log );
-	
+
 	if ($result = $conn->query($query)) {
 		while ($row = $result->fetch_row()) {
 			$nextConsulting = $row[0];
@@ -1225,23 +1226,23 @@ function getNextConsulting($consulting_table_number, $lastConsulting, $isPriorit
 
 function getLastConsulting($isPriority){
 	$countColumnName = "last_default_consulting_id";
-	
+
 	if ($isPriority){
 		$countColumnName = "last_priority_consulting_id";
-	}	
+	}
 	$conn = getConnection();
-	
-	
+
+
 	$query = sprintf("SELECT %s FROM last_consulting WHERE reapply = 0 ORDER BY id DESC limit 1",
     $countColumnName);
 	$msg2log = sprintf(  "Busca de último Consultor: %s " , $query );
-	logMsg( $msg2log );	
-	
+	logMsg( $msg2log );
+
 	if ($result = $conn->query($query)) {
 		while ($row = $result->fetch_row()) {
 			$lastConsulting = $row[0];
 		}
-	
+
 		/* free result set */
 		$result->close();
 	}
@@ -1255,17 +1256,17 @@ function getLastConsulting($isPriority){
 	logMsg( $msg2log );
 	return $lastConsulting;
 }
-	
+
 function isPriorityInterest($interest){
 
 	$conn = getConnection();
 	$isPriority = false;
-	
-	$query = sprintf("SELECT `priority_interest_status` FROM priority_interest WHERE 
-	`priority_interest_status` = 1 AND 
+
+	$query = sprintf("SELECT `priority_interest_status` FROM priority_interest WHERE
+	`priority_interest_status` = 1 AND
 	interest = '%s' limit 1",
     $interest);
-	
+
 	if ($result = $conn->query($query)) {
 		while ($row = $result->fetch_row()) {
 			$isPriority = $row[0];
@@ -1282,7 +1283,7 @@ function isPriorityInterest($interest){
 	$isPriority = $isPriority!=""?$isPriority:0;
 	$msg2log = sprintf(  "Busca de prioridade: %s " , $query );
 	logMsg( $msg2log );
-	
+
 	return $isPriority;
 }
 
@@ -1290,38 +1291,38 @@ function isPriorityInterest($interest){
 
 function updateConsulting($isPriority, $consulting){
 	$countColumnName = "default_count";
-	
+
 	if ($isPriority){
 		$countColumnName = "priority_count";
-	}	
+	}
 	$conn = getConnection();
 
 	$query = sprintf("UPDATE consulting01 SET %s = %s + 1 WHERE id = %s", $countColumnName, $countColumnName, $consulting);
-	
+
 	if ($conn->query($query)) {
 		$msg2log = sprintf(  "Consultor atualizado: %s " , $query );
 		logMsg( $msg2log );
-		
+
 	}
 	else{
 		$message  = 'Invalid query: ' . mysql_error() . "\n";
 		$message .= 'Whole query: ' . $query;
 		die($message);
 	}
-	
+
 }
 
 
 function updateLastConsulting($isPriority, $consulting, $reapply){
 	$countColumnName = "last_default_consulting_id";
-	
+
 	if ($isPriority){
 		$countColumnName = "last_priority_consulting_id";
-	}	
+	}
 	$conn = getConnection();
 
 	$query = sprintf("INSERT INTO last_consulting (%s, reapply) VALUES (%s, %s )", $countColumnName, $consulting, $reapply);
-	
+
 	if ($conn->query($query)) {
 		$msg2log = sprintf(  "Último Consultor atualizado: %s " , $query );
 		logMsg( $msg2log );
@@ -1342,13 +1343,13 @@ function getConnection(){
 	$username = "dist";
 	$password = "gr2t1d2o2019";
 	$dbname = "distribuidor";
-	
+
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
-	} 
+	}
 	return $conn;
 }
 
@@ -1373,26 +1374,26 @@ function logMsg( $msg, $level = 'info', $file = 'dist.log' )
 {
     // log level (INFO, WARNING ou ERROR)
     $levelStr = '';
- 
+
     // check log level
     switch ( $level )
     {
         case 'info':
             $levelStr = 'INFO';
             break;
- 
+
         case 'warning':
              $levelStr = 'WARNING';
             break;
- 
+
         case 'error':
             $levelStr = 'ERROR';
             break;
     }
- 
+
     $date = date( 'Y-m-d H:i:s' );
     $msg = sprintf( "[%s] [%s]: %s%s", $date, $levelStr, $msg, PHP_EOL );
- 
+
     file_put_contents( $file, $msg, FILE_APPEND );
 }
 
@@ -1400,7 +1401,7 @@ function getActualConsulting($email){
 
 	$curl = curl_init();
 	$url= sprintf( "https://api.agendor.com.br/v3/people?email=%s", $email);
-	
+
 	curl_setopt_array($curl, array(
 	  CURLOPT_URL => $url,
 	  CURLOPT_RETURNTRANSFER => true,
@@ -1430,28 +1431,28 @@ function getActualConsulting($email){
 
 	$obj = json_decode($responseAgConsulting, true);
 	$actualConsulting = $obj["data"][0]["ownerUser"]["id"];
-	
+
 	// Agendor log - Looking for Consulting
 	$msg2log = sprintf(  "Envio para Agendor (Busca de consultor do Lead): Email: %s, URL: %s", $email, $url );
 	logMsg( $msg2log );
 	logMsg( sprintf("actualConsulting: %s", $actualConsulting) );
 	logMsg( sprintf("Resposta do agendor: %s", $responseAgConsulting) );
-		
+
 	return $actualConsulting;
-}	
+}
 
 if ( $responseAgTarefa ) {
 	if ($sendWhatsappOption != ""){
 		header($thanksUrl.$whatsappUrl);
 	}
-	else{	
-		header($thanksUrl); 
+	else{
+		header($thanksUrl);
 	}
 }
 
 
-end:	
+end:
 	exit();
-	header($thanksUrl); 
+	header($thanksUrl);
 
 ?>

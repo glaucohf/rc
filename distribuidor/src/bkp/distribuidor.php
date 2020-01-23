@@ -53,7 +53,8 @@ if ($url == ""){
 
 $observation = sprintf ( "Formulário: %s \n Origem do Lead: \n %s", $formNumber, $url);
 
-if ($checkMandatoryPhone == true and $phone == ""){
+//Some validations
+if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching.com.br/distribuidor/distribuidor.php"){
 	$thanksUrl = 'Location: https://riocoaching.com.br/obrigado/';
 	goto end;
 }

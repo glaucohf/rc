@@ -161,7 +161,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$dinamicForm = false;
 		break;
 	case "KCP-Recife":
-		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKCPrecife.php';
+		$mailUrl = 'https://riocoaching.com.br/distribuidor/enviaremailKCPrecife.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/195293';
 		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-recife/mensagem-enviada';
 		$id = '195293';

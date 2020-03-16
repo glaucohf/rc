@@ -14,6 +14,7 @@ $countAlreadyRegistredLead = true; //Contabilizar usuário já registrado
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
+$msg = $_POST['message'];
 $interest = $_POST['interest'];
 $url = $_SERVER['HTTP_REFERER'];
 $ip = $_SERVER["REMOTE_ADDR"];
@@ -45,12 +46,21 @@ if ($interest == ""){
 	$email = $_POST['llfield3520'];
 	$interest = $_POST['llfield9096']; // Lead from Rio Coaching (dinamic form )
 }
+
+//Request from LEADLOVERS
+if ($interest == ""){
+	$interest = $_GET['u'];
+	$name = $_POST['nome'];
+	$phone = $_POST['telefone'];
+	$email = $_POST['email'];
+}
+
 if ($url == ""){
 	$url = $_POST['url'];
 	$ip = $_POST["ip"];
 }
 $responseAgTarefa=true;
-$observation = sprintf ( "Formulário: %s \n Origem do Lead: \n %s", $formNumber, $url);
+$observation = sprintf ( "Formulário: %s \n Origem do Lead: \n %s \n Mensagem: \n %s", $formNumber, $url, $msg);
 
 //Some validations
 if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching.com.br/distribuidor/distribuidor.php"){
@@ -433,20 +443,20 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 	    $pid = '9217638';
 		$leadOrigins = 1057016;
 		$products = "[208435]";
-		$consultingTable = 1;
+		$consultingTable = 2;
 		$dinamicForm = false;
 		$sendLeadAgendor = false;
 		break;
 	case "TG-2020":
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviarEmailProdutos.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/119021';
-		$thanksUrl = 'Location: https://pay.hotmart.com/X12973548M?off=t5fkwudb';
+		$thanksUrl = 'Location: https://pay.hotmart.com/X12973548M?off=dfiuotra';
 	    //$whatsappUrl = '?whatsUrl=https://whats.club/?wr=5E6F26D3';
 		$id = '119021';
 	    $pid = '9217638';
 		$leadOrigins = 1057016;
 		$products = "[208435]";
-		$consultingTable = 1;
+		$consultingTable = 2;
 		$dinamicForm = false;
 		$sendLeadAgendor = true;
 		break;
@@ -458,7 +468,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 	    $pid = '9217730';
 		$leadOrigins = 1057016;
 		$products = "[208435]";
-		$consultingTable = 1;
+		$consultingTable = 2;
 		$dinamicForm = false;
 		$sendLeadAgendor = true;
 		$sendWhatsappOption = "";
@@ -473,7 +483,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 	    $pid = '3426935';
 		$leadOrigins = 1057016;
 		$products = "[208435]";
-		$consultingTable = 1;
+		$consultingTable = 2;
 		$dinamicForm = false;
 		break;
 	case "mb": //TODO Ajustar os valores
@@ -575,14 +585,14 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 	 case "kc-cpl4":
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/151488';
-		$thanksUrl = 'Location: https://pay.hotmart.com/N4260373R?off=tco7gczk';
+		$thanksUrl = 'Location: https://pay.hotmart.com/N4260373R?off=tco7gczk&checkoutMode=10';
 		$id = '151488';
 	    $pid = '4785274';
 		$leadOrigins = 1030422;
 		$products = "[223809]";
 		$consultingTable = 2;
 		$dinamicForm = false;
-		$sendLeadAgendor = true;
+		$sendLeadAgendor = false;
 		$sendWhatsappOption = "";
 		break;
 	 case "tc-ppl": //tc ppl1 e 2
@@ -776,6 +786,152 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$dinamicForm = false;
 		$sendLeadAgendor = true;
 		break;
+	case "fb-Kids":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1401994;
+		$products = "[223809]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "Profiler":
+		break;
+	case "fb-Teen":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1401994;
+		$products = "[222988]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "fb-KCP-RJ":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1401994;
+		$products = "[325440]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "fb-KCP-SP":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1401994;
+		$products = "[325441]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "fb-KCP-BH":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1401994;
+		$products = "[325442]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "fb-KCP-Brasilia":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1401994;
+		$products = "[349235]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "fb-KCP-PT":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1401994;
+		$products = "[333134]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "fb-TG-2020":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1401994;
+		$products = "[208435]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "KC-ListaPreferencial":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1404413;
+		$products = "[223809]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "KC-Checkout":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1404458;
+		$products = "[223809]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "KC-Boleto":
+	  $sendLeadLovers = false;
+		$sendEmail = false;
+		$thanksUrl = 'Location: https://kidscoaching.com.br/presencial-rj/mensagem-enviada';
+		$leadOrigins = 1405705;
+		$products = "[223809]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendHotzapp = false;
+		$urlHotzappSufix = "KCP";
+		$hotzappProduct = "KCP-RJ";
+		break;
+	case "Profiler":
+		break;
+	case "Profiler":
+		break;
+	case "Profiler":
+		break;
+	case "Profiler":
+		break;
+	case "Profiler":
+		break;
+	case "Profiler":
+		break;
 	case "Profiler":
 		break;
 	case "Reingresso":
@@ -847,7 +1003,7 @@ if (!wasRecentlyRegistredLead($email)){
 	// set post fields to leadlovers
 	if ($sendLeadLovers){
 		if ($dinamicForm == true){
-			logMsg( DINAMICO );
+			logMsg( "DINAMICO" );
 			// set post fields dinamic form
 			$post = [
 				'mid' => $id,
@@ -862,7 +1018,7 @@ if (!wasRecentlyRegistredLead($email)){
 			];
 		}
 		else{
-			logMsg( ESTATICO);
+			logMsg( "ESTATICO");
 			// set post fields static form
 			$post = [
 				'id' => $id,

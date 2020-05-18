@@ -19,13 +19,11 @@ $interest = $_POST['interest'];
 $url = $_SERVER['HTTP_REFERER'];
 $ip = $_SERVER["REMOTE_ADDR"];
 $formNumber = $_POST['formNumber'];
-$time = $_POST['time'];
-$hunterConsulting = $_POST['consulting'];
 
 $destino = $_POST['destino'];
 
 $sendWhatsappOption = $_POST['whatsapp_updates'];
-$whatsappUrl = '?whatsUrl=https://whats.club/?wr=0E78A318';
+$whatsappUrl = '?whatsUrl=http://whats.club/?wr=F27D395B';
 $consulting = 100001; // Lançamento
 
 $defaultConsulting = 262497; //Rio coaching
@@ -449,10 +447,10 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$dinamicForm = false;
 		$sendLeadAgendor = false;
 		break;
-	case "TG-Hotmart":
+	case "TG-2020":
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviarEmailProdutos.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/119021';
-		$thanksUrl = 'Location: https://pay.hotmart.com/X12973548M?off=j7yn3xnk';
+		$thanksUrl = 'Location: https://pay.hotmart.com/X12973548M?off=dfiuotra';
 	    //$whatsappUrl = '?whatsUrl=https://whats.club/?wr=5E6F26D3';
 		$id = '119021';
 	    $pid = '9217638';
@@ -462,17 +460,17 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$dinamicForm = false;
 		$sendLeadAgendor = true;
 		break;
-	case "TG-2020":
+	case "TG-Hotmart":
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviarEmailProdutos.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/119021';
-		$thanksUrl = 'Location: https://transformogeracoes.com.br/2020/videos/';
+		$thanksUrl = 'Location: https://pay.hotmart.com/H7721969G?off=baecsph5';
 		$id = '119021';
 	    $pid = '9217730';
 		$leadOrigins = 1057016;
 		$products = "[208435]";
 		$consultingTable = 2;
 		$dinamicForm = false;
-		$sendLeadAgendor = false;
+		$sendLeadAgendor = true;
 		$sendWhatsappOption = "";
 		break;
 	case "TG":
@@ -587,7 +585,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 	 case "kc-cpl4":
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/151488';
-		$thanksUrl = 'Location: https://pay.hotmart.com/N4260373R?off=wk2aeqt6&checkoutMode=10';
+		$thanksUrl = 'Location: https://pay.hotmart.com/N4260373R?off=tco7gczk&checkoutMode=10';
 		$id = '151488';
 	    $pid = '4785274';
 		$leadOrigins = 1030422;
@@ -613,7 +611,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 	case "tc-cpl4": //comprar curso da aula 4 teen
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
 		$leadloversUrl = 'https://paginas.rocks/Pages/Index/156625';
-		$thanksUrl = 'Location: https://pay.hotmart.com/I6182577C?off=x15srlex';
+		$thanksUrl = 'Location: https://pay.hotmart.com/I6182577C';
 		$id = '156625';
 	    $pid = '8045007';
 		$leadOrigins = 1030465;
@@ -1070,27 +1068,19 @@ if (!wasRecentlyRegistredLead($email)){
 
 
 		if ($isActiveConsulting!=1 or $consulting == ""){
-			if ($hunterConsulting != "" and isActiveConsulting($hunterConsulting)){
-				$consulting = $hunterConsulting;
-				$msg2log = sprintf(  "Utilizando consultor ajustado pelo Hunter: %s", $consulting );
-				logMsg( $msg2log );
-				$isPriority = isPriorityInterest($interest);
-				updateConsulting($isPriority, $consulting);
-			}
-			else{
-				$day = date('d');
-				$isPriority = isPriorityInterest($interest);
-				$msg2log = sprintf(  "Interest prioritário: %s", $isPriority );
-				logMsg( $msg2log );
-				$lastConsulting = getLastConsulting($isPriority);
-				$msg2log = sprintf(  "Último Consultor: %s", $lastConsulting );
-				logMsg( $msg2log );
-				$consulting = getNextConsulting ($consultingTable, $lastConsulting, $isPriority, $day);
-				$msg2log = sprintf(  "Próximo Consultor: %s", $consulting );
-				logMsg( $msg2log );
-				updateLastConsulting($isPriority, $consulting, $reapply);
-				updateConsulting($isPriority, $consulting);
-			}
+			$day = date('d');
+			$isPriority = isPriorityInterest($interest);
+			$msg2log = sprintf(  "Interest prioritário: %s", $isPriority );
+			logMsg( $msg2log );
+			$lastConsulting = getLastConsulting($isPriority);
+			$msg2log = sprintf(  "Último Consultor: %s", $lastConsulting );
+			logMsg( $msg2log );
+			$consulting = getNextConsulting ($consultingTable, $lastConsulting, $isPriority, $day);
+			$msg2log = sprintf(  "Próximo Consultor: %s", $consulting );
+			logMsg( $msg2log );
+			updateLastConsulting($isPriority, $consulting, $reapply);
+			updateConsulting($isPriority, $consulting);
+
 		}
 		//Vai manter o mesmo consultor
 		else{
@@ -1169,21 +1159,7 @@ if (!wasRecentlyRegistredLead($email)){
 		logMsg( $fieldsLead );
 		logMsg( $responseAg );
 
-		if ($time==""){
-			$date = date('Y-m-d\TH:i:s');
-		} else{
-			$timeStr = $time;
-			$dateArray=explode("/", $timeStr);
-			$day=$dateArray[0];
-			$month=$dateArray[1];
-			$yearAndTime=$dateArray[2];
-			$yearAndTimeArray=explode(" ", $yearAndTime);
-			$year=$yearAndTimeArray[0];
-			$time=$yearAndTimeArray[1];
-
-			$date=$year."-".$month."-".$day."T".$time;
-			//$date = '2020-04-28T21:27';
-		}
+		$date = date('Y-m-d\TH:i:s');
 
 		// Task creation
 		$ch = curl_init();
@@ -1197,7 +1173,7 @@ if (!wasRecentlyRegistredLead($email)){
 		$fieldsTask="{
 			 \"person\":  $client,
 			\"text\": \"Entrar em contato.\",
-			\"dueDate\": \"$date\",
+			\"dueDate\": \" $date \",
 			\"assignedUsers\": [$consulting]
 		}";
 

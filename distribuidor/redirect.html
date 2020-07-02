@@ -1,0 +1,21 @@
+<head>
+<script type="text/javascript"> 
+var myVar = setTimeout(redirect, 1000);
+function redirect() {
+  var query = location.search.slice(1);
+  var partes = query.split('&');
+  var data = {};
+  partes.forEach(function (parte) {
+    
+    var chave = parte.substring(0, 8);
+
+    var valor = parte.substring(9, parte.lenght);;
+    if (chave == 'whatsUrl' && valor != null) {
+      window.open (valor, '_blank');
+    }
+  });
+}
+
+</script>
+</head>
+<body>teste</body>

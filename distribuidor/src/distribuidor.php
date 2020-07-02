@@ -622,7 +622,59 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$dinamicForm = false;
 		$sendLeadAgendor = true;
 		$sendWhatsappOption = "";
+		break;	
+	case "KCinhome": //KC In Home
+		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
+		$leadloversUrl = 'https://leadlovers.com/Pages/Index/403566';
+		$thanksUrl = 'Location: https://kidscoachinginhome.com.br/embreve-kcin';
+		$id = '403566';
+	    $pid = '14969319';
+		$leadOrigins = 1030422;
+		$products = "[223809]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		// $consulting = 100004;
+		break;	
+	case "KCinhome-PPL-CPL": //KC In Home
+		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
+		$leadloversUrl = 'https://leadlovers.com/Pages/Index/403566';
+		$thanksUrl = 'Location: https://kidscoachinginhome.com.br/embreve-kcin';
+		$whatsappUrl = '?whatsUrl=https://whats.club/?wr=7C26FEF9';
+		$id = '403566';
+	    $pid = '15554098';
+		$leadOrigins = 1030422;
+		$products = "[223809]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendLeadAgendor = false;
+		$consulting = 100004;
+		break;		
+	case "KCinhome-checkout": //KC In Home
+		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
+		$leadloversUrl = 'https://leadlovers.com/Pages/Index/403566';
+		$thanksUrl = 'Location: https://pay.hotmart.com/F17894889A?off=69kufxg6';
+		$id = '403566';
+	    $pid = '15554121';
+		$leadOrigins = 1474781;
+		$products = "[223809]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendLeadAgendor = true;
+		// $consulting = 100004;
 		break;
+	case "KCin-lista-preferencial": //KC In Home
+		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
+		$leadloversUrl = 'https://leadlovers.com/Pages/Index/403566';
+		$thanksUrl = 'Location: https://kidscoachinginhome.com.br/lista-preferencial/obrigado/';
+		$id = '403566';
+	    $pid = '15798896';
+		$leadOrigins = 1450932;
+		$products = "[223809]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendLeadAgendor = true;
+		$consulting = 100002;
+		break;				
 	case "doterra":
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviarEmailProdutos.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/329770';
@@ -649,6 +701,18 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$sendHotzapp = false;
 		$urlHotzappSufix = "KC";
 		$hotzappProduct = "KC#20";
+		break;
+		case "live-zoom":
+		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
+		$leadloversUrl = 'https://leadlovers.com/Pages/Index/403566';
+		$thanksUrl = 'Location: https://kidscoachinginhome.com.br/live-marcia-belmiro/obrigado/';
+		$id = '56451';
+	    $pid = '15839721';
+		$leadOrigins = 1030422;
+		$products = "[223809]";
+		$consultingTable = 2;
+		$dinamicForm = false;
+		$sendLeadAgendor = false;
 		break;
 	case "Teen-blackfriday":
 		$mailUrl= 'http://riocoaching.com.br/distribuidor/enviaremailTC.php';

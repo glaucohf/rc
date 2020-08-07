@@ -10,6 +10,7 @@ $sendDB = true;
 $insideTheLimit = true;
 $checkMandatoryPhone = true;
 $countAlreadyRegistredLead = true; //Contabilizar usuário já registrado
+$sendTwiceLeadLovers = false; //Fazer secundo envio de dados para outra máquina do leadlovers
 
 $name = $_POST['name'];
 $phone = $_POST['phone'];
@@ -65,7 +66,7 @@ $responseAgTarefa=true;
 $observation = sprintf ( "Formulário: %s \n Origem do Lead: \n %s \n Mensagem: \n %s", $formNumber, $url, $msg);
 
 //Some validations
-if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching.com.br/distribuidor/distribuidor.php"){
+if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching.com.br/distribuidor/distribuidor.php"  or $ip == ""){
 	$thanksUrl = 'Location: https://riocoaching.com.br/obrigado/';
 	goto end;
 }
@@ -575,7 +576,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 	case "cidi": //  Curso introducao area de membros - KCin PPL
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/151488';
-		$thanksUrl = 'Location: https://cursointroducaoinfantil.icij.com.br';
+		$thanksUrl = 'Location: https://https://kidscoachinginhome.com.br/embreve-kcin';
 		$id = '445542';
 	    $pid = '16027344';
 		$leadOrigins = 1030422;
@@ -583,7 +584,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$consultingTable = 2;
 		$dinamicForm = false;
 		$sendLeadAgendor = false;
-		$consulting = 100002;
+		$consulting = 100004;
 		break;
 	 case "Lista Preferencial": //kc ppl 3
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
@@ -635,7 +636,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$dinamicForm = false;
 		$sendLeadAgendor = true;
 		$sendWhatsappOption = "";
-		break;	
+		break;
 	case "KCinhome": //KC In Home
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/403566';
@@ -648,7 +649,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$dinamicForm = false;
 		$sendLeadAgendor = true;
 		$consulting = 100004;
-		break;	
+		break;
 	case "KCinhome-PPL-CPL": //KC In Home
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/403566';
@@ -662,7 +663,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$dinamicForm = false;
 		$sendLeadAgendor = false;
 		$consulting = 100004;
-		break;		
+		break;
 	case "KCinhome-checkout": //KC In Home
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/403566';
@@ -688,7 +689,7 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$dinamicForm = false;
 		$sendLeadAgendor = true;
 		$consulting = 100004;
-		break;				
+		break;
 	case "doterra":
 		$mailUrl = 'http://riocoaching.com.br/distribuidor/enviarEmailProdutos.php';
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/329770';
@@ -1000,6 +1001,25 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$urlHotzappSufix = "KCP";
 		$hotzappProduct = "KCP-RJ";
 		break;
+	case "envia-2-vezes-leadlovers":
+			$mailUrl = 'http://riocoaching.com.br/distribuidor/enviaremailKC.php';
+			$leadloversUrl = 'https://leadlovers.com/Pages/Index/104792';
+			$thanksUrl = 'Location: https://kidscoaching.com.br/mensagem-enviada';
+			$id = '104792';
+		  $pid = '3319563';
+			$leadOrigins = 1030422;
+			$products = "[223809]";
+			$consultingTable = 2;
+			$dinamicForm = false;
+			$sendHotzapp = false;
+			$urlHotzappSufix = "KC";
+			$hotzappProduct = "KC#20";
+			//Alteraçoes para segundo envio para lead lovers
+			$sendTwiceLeadLovers = true;
+			$leadloversUrl2 = 'https://leadlovers.com/Pages/Index/104792';
+			$id2 = '104792';
+			$pid2 = '3319563';
+			break;
 	case "Profiler":
 		break;
 	case "Profiler":
@@ -1024,10 +1044,11 @@ if ($checkMandatoryPhone == true and $phone == "" or $url =="https://riocoaching
 		$leadloversUrl = 'https://leadlovers.com/Pages/Index/104792';
 		$thanksUrl = 'Location: https://kidscoaching.com.br/mensagem-enviada';
 		$id = '104792';
-	    $pid = '3319563';
+	  $pid = '3319563';
 		$products = "[223809]";
 		$consultingTable = 2;
 		$dinamicForm = false;
+		$hunterConsulting = 262497; // para colocar um consultor específico, nesse caso é o Rio Coaching
 		break;
 }
 
@@ -1129,6 +1150,43 @@ if (!wasRecentlyRegistredLead($email)){
 		logMsg( $msg2log );
 		logMsg($responseLL);
 	}
+
+	//BEGIN SECOND ACCESS LEADLOVERS
+	// set post fields to leadlovers
+	if ($sendTwiceLeadLovers){
+
+			logMsg( "ESTATICO");
+			// set post fields static form
+			$post = [
+				'id' => $id2,
+				'pid' => $pid2,
+				'list_id' => $id2,
+				'provider' => 'leadlovers',
+				// 'source' => $_GET['utm_source'],
+				//'source' => $_COOKIE['_ao5_track_mensagem'],
+				'name' => $name,
+				'phone' => $phone,
+				'email' => $email
+			];
+
+
+
+		$ch = curl_init($leadloversUrl2); //mudar
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+		// execute!
+		$responseLL2 = curl_exec($ch);
+
+		// close the connection, release resources used
+		curl_close($ch);
+
+		// log leadlovers
+		$msg2log = sprintf(  "Envio para leadlovers realizado com sucesso! Nome: %s , email: %s , telefone: %s, URL: %s " , $name, $email, $phone, $leadloversUrl2 );
+		logMsg( $msg2log );
+		logMsg($responseLL2);
+	}
+
 
 	//BEGIN AGENDOR
 	if ($sendLeadAgendor){
